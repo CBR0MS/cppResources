@@ -3,7 +3,7 @@ void selectionSort(int arr[], int SIZE_ARR) {
 	for (int i = 0; i < SIZE_ARR - 1; i++) {
 
 		int indexMin = i + 1;
-		int assmMin = arr[i];
+		int assumedMin = arr[i];
 		int subMin = arr[i + 1];
 
 		for (int j = i + 2; j < SIZE_ARR; j++) {
@@ -14,7 +14,7 @@ void selectionSort(int arr[], int SIZE_ARR) {
 				indexMin = j;
 			}
 		}
-		if (assmMin > subMin) {
+		if (assumedMin > subMin) {
 
 			swap(arr[indexMin], arr[i]);
 		}
