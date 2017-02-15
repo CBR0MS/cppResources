@@ -1,7 +1,12 @@
-// class is designed to model a vector
-// with functions such as push_back and pop_back
+//  File: List.hpp
+//  Additonal Files: main.cpp
+//  Compiler: MS Visual Studio 2017
+//  Created by Christian Broms on 2/14/17.
+//  class is designed to mimic a Vector container
+//  description is at the end of the file
 
-#include <iostream>
+#ifndef List_hpp
+#define List_hpp
 
 template<class T>
 class List {
@@ -10,21 +15,24 @@ public:
 
 	typedef T value_type;
 
-	// constructors
-	List(int p_capacity);
+	/* CONSTRUCTORS */
+
+	List(); 
+	List(int p_capacity); 
 	List(T p_value, int p_capacity);
 
-	// getters
+	/* GETTERS */ 
+
 	int getSize();
 	int getCapacity();
 	void displayList();
 
-	// setters
+	/* SETTERS */
+
 	void setValue(T p_newValue);
 	void push_back(T p_value);
 	void pop_back();
 
-　
 private:
 
 	void increaseCapacity(int addCapacity);
@@ -33,6 +41,14 @@ private:
 	int m_size;
 
 };
+
+template<class T>
+List<T>::List() {
+
+	m_arr = new T[0];
+	m_size = 0;
+	m_capacity = 0;
+}
 
 template<class T>
 List<T>::List(int p_capacity) {
@@ -44,6 +60,7 @@ List<T>::List(int p_capacity) {
 	for (int i = 0; i < m_size; i++) {
 		m_arr[i] = value_type();
 	}
+
 }
 
 template<class T>
@@ -94,20 +111,22 @@ void List<T>::setValue(T p_newValue) {
 template<class T>
 void  List<T>::push_back(T p_value) {
 
-	if (m_size + 1 >= m_capacity) {
+	if (m_size + 1>= m_capacity) {
 		increaseCapacity(1);
 		m_arr[m_size] = p_value;
+		m_size++;
 	}
 	else {
 		m_arr[m_size] = p_value;
+		m_size++;
 	}
 }
 
 template<class T>
 void  List<T>::pop_back() {
 
-	m_arr[m_size] = value_type();
-	size--;
+	m_arr[m_size - 1] = value_type();
+	m_size--;
 }
 
 template<class T>
@@ -136,3 +155,33 @@ void List<T>::increaseCapacity(int addCapacity) {
 	delete[] tempArr;
 	tempArr = NULL;
 }
+
+#endif /* List_hpp */
+
+/* 
+CONSTRUCTORS:
+List();
+	creates a list with size 0
+List(int p_capacity);
+	creates a list with capacity as passed through constructor
+	list is initalized with default values of type T
+List(T p_value, int p_capacity);
+	creates a list with capacity as passed through constructor
+	list is initalized with values of type T passed through constructor
+
+GETTERS:
+int getSize();
+	 returns the number of elements in the list
+int getCapacity();
+	 reutrns the capacity of the list
+void displayList();
+	displays the list
+
+SETTERS:
+void setValue(T p_newValue);
+	sets the entire list with value of type T
+void push_back(T p_value);
+	adds passed value of type T to the back of the list
+void pop_back();
+	removes the last element of the list 
+*/
