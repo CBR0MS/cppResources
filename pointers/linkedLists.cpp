@@ -15,7 +15,6 @@ int main() {
 	Node* hPtr = NULL;
 	Node* tPtr = NULL;
 	Node* temp = NULL;
-	Node* mPtr = NULL;
 
 	// make and populate first node (dummy)
 
@@ -63,7 +62,8 @@ int main() {
 
 	insertNode(temp, hPtr);
 
-	// display
+	// display everything that is not INT_MAX or INT_MIN -
+	// these nodes are still part of the list, just not displayed
 
 	temp = hPtr;
 
