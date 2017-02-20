@@ -1,24 +1,27 @@
-#include "List.h"
+// Filename: List.cpp
+// Additional Files: List.hpp, ListSource.cpp
+// Created by Christian Broms on 2/16/17
+// Compiler: MS Visual Studio 2015
+
+#include "List.hpp"
 #include <iostream>
 
-using namespace std;
+List::List() {
 
-List::List()
-{
 	dataList = new int[10];
 	length = 0;
 	capacity = 10;
 }
 
-List::List(int p_cap)
-{
+List::List(int p_cap) {
+
 	dataList = new int[p_cap];
 	length = 0;
 	capacity = p_cap;
 }
 
-List::List(const List& p_list)
-{
+List::List(const List& p_list) {
+
 	//Allocate separate memory
 	dataList = new int[p_list.capacity];
 
@@ -31,32 +34,32 @@ List::List(const List& p_list)
 	}
 }
 
-void List::addItem(int newItem)
-{
-	if (length != capacity)
-	{
+void List::addItem(int newItem) {
+
+	if (length != capacity) {
+
 		dataList[length] = newItem;
 		length++;
 	}
 }
-void List::printList()
-{
+
+void List::printList() {
+
 	for (int i = 0; i < length; i++)
-		cout << dataList[i] << ' ';
+		std::cout << dataList[i] << ' ';
 }
-void List::decrementAll()
-{
+void List::decrementAll() {
+
 	for (int i = 0; i < length; i++)
 		dataList[i]--;
 }
 
-List& List::operator= (const List& p_list)
-{
+List& List::operator= (const List& p_list) {
+
 	//Allocate separate memory
 	dataList = new int[p_list.capacity];
 
 	//Copy over attriutes of p_obj 
-
 	capacity = p_list.capacity;
 	length = p_list.length;
 
@@ -67,6 +70,7 @@ List& List::operator= (const List& p_list)
 	return *this;
 }
 
-//List::~List()
-//{
-//}
+List::~List() {
+
+	// object deconstructor
+}
