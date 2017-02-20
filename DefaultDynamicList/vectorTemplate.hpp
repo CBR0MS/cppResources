@@ -3,7 +3,6 @@
 //  Compiler: MS Visual Studio 2017
 //  Created by Christian Broms on 2/14/17.
 //  class is designed to mimic a Vector container
-//  description is at the end of the file
 
 #ifndef List_hpp
 #define List_hpp
