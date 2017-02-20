@@ -1,5 +1,10 @@
-#ifndef ListClass
-#define ListClass
+// Filename: List.hpp
+// Additional Files: List.cpp, ListSource.cpp
+// Created by Christian Broms on 2/16/17
+// Compiler: MS Visual Studio 2015
+
+#ifndef List_hpp
+#define List_hpp
 
 class List
 {
@@ -13,7 +18,7 @@ public:
 	void decrementAll();
 
 	List& operator= (const List&);
-	//~List();
+	~List();
 
 private:
 	int *dataList;
@@ -21,4 +26,4 @@ private:
 	int capacity;
 };
 
-#endif /* ListClass */
+#endif /* List_hpp */
