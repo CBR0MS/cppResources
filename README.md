@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+## C++ Resources 
 
-You can use the [editor on GitHub](https://github.com/CBR0MS/cppResources/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Developing a library of container classes in C++.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Folders and Files
 
-### Markdown
+ Markup : 1. **DefaultDynamicList**
+           1.` vectorTemplate.hpp`
+             1. A template that mimics the behavoir and functionality of a vector with the use of dynamic arrays
+          2. **IntegerDynamicList**
+            1. `List.cpp`
+            2. `List.hpp`
+             1. Same functionality as the vector template, but integer specific
+          3. **PairTemplate**
+            1. `pairing.cpp`
+              1. A template that allows the storage of two different data types
+          4. **operatorOverloads**
+           1. `IntItem.hpp`
+           2. `IntItem.cpp`
+             1. Overloads operators used in arithmetic operations and comparisons to mimic the standard functionality with integers
+          5.***pointers***
+            1. `linkedLists.cpp`
+             1. A singly-linked list that allows addition of new integers and sorts them in ascending order
+            2. `pointerTypes.cpp`
+             1. Examples of const pointers and const data
+          6. **SortingAlgorithms**
+           1. `bubble.cpp`
+           2. `insertionSort.cpp`
+           3. `selectionSort.cpp`
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Further Development
 
-```markdown
-Syntax highlighted code block
+This will be developed into a large library of vector-style container classes with a high degree of functionality including the following public functions: 
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CBR0MS/cppResources/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Function       | Description
+-------------  | -------------
+makeContainer  |
+addToAll       | add a specified value to entire container
+push_back      | 
+pop_back       | 
+sortAscending  | 
+sortDescending | 
+getIndexOf     | returns the index of specified content
+removeAll      | removes all data
+removeAt       | removes at an index
+removeItem     | removes reocurring items
+swap           |
+getCapacity    | 
+getSize        | 
+operator+      |
+operator-      |
+operator[]     |
