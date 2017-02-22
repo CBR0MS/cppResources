@@ -7,9 +7,9 @@ Developing a library of container classes in C++.
 ----
 
 1. **DefaultDynamicList**
-  1.`vectorTemplate.hpp`
-  1. A template that mimics the behavoir and functionality of a vector with the use of dynamic arrays
-  
+  1. `vectorTemplate.hpp`
+    1. A template that mimics the behavoir and functionality of a vector with the use of dynamic arrays
+
 2. **IntegerDynamicList**
   1. `List.cpp`
   2. `List.hpp`
