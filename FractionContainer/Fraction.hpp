@@ -12,39 +12,52 @@ class Fraction
 {
 public:
 
-	Fraction();
-	Fraction(const int& p_num, const int& p_denom);
+	/***** CONSTRUCTORS & DESTRUCTOR *****/
 
-	// augmented assignments
+	Fraction();
+	Fraction(int p_num);
+	Fraction(const int& p_num, const int& p_denom);
+	~Fraction();
+
+	/***** AUGMENTED ASSIGNMENTS *****/
+
 	void operator+=(Fraction& rhs);
 	void operator-=(Fraction& rhs);
 	void operator*=(Fraction& rhs);
 	void operator/=(Fraction& rhs);
+	void operator+=(int rhs);
+	void operator-=(int rhs);
+	void operator*=(int rhs);
+	void operator/=(int rhs);
 	Fraction operator++();
 	Fraction operator++(int p_dummy);
 	Fraction operator--();
 	Fraction operator--(int p_dummy);
 
-	// streams
-	/*friend std::ostream& operator<<(std::ostream& out, const Fraction& printMe);*/
-	friend std::istream& operator >> (std::istream& in, Fraction& readMe);
+	/***** STREAMS *****/
 
-	//// comparison operators
-	//friend bool operator<(const Fraction& lhs, const Fraction& rhs);
-	//friend bool operator<=(const Fraction& lhs, const Fraction& rhs);
-	//friend bool operator==(const Fraction& lhs, const Fraction& rhs);
-	//friend bool operator>(const Fraction& lhs, const Fraction& rhs);
-	//friend bool operator>=(const Fraction& lhs, const Fraction& rhs);
-	//friend bool operator!=(const Fraction& lhs, const Fraction& rhs);
+	friend std::ostream& operator<<(std::ostream& out, const Fraction& print);
+	friend std::istream& operator>>(std::istream& in, Fraction& read);
 
-	//// arithmetic operators
-	//friend Fraction operator+(const Fraction& lhs, const Fraction& rhs);
-	//friend Fraction operator-(const Fraction& lhs, const Fraction& rhs);
-	//friend Fraction operator*(const Fraction& lhs, const Fraction& rhs);
-	//friend Fraction operator/(const Fraction& lhs, const Fraction& rhs);
+	/***** COMPARISON OPERATORS *****/
+
+	friend bool operator<(const Fraction& lhs, const Fraction& rhs);
+	friend bool operator<=(const Fraction& lhs, const Fraction& rhs);
+	friend bool operator==(const Fraction& lhs, const Fraction& rhs);
+	friend bool operator>(const Fraction& lhs, const Fraction& rhs);
+	friend bool operator>=(const Fraction& lhs, const Fraction& rhs);
+	friend bool operator!=(const Fraction& lhs, const Fraction& rhs);
+
+	/***** ARITHMETIC OPERATORS *****/
+
+	friend Fraction operator+(const Fraction& lhs, const Fraction& rhs);
+	friend Fraction operator-(const Fraction& lhs, const Fraction& rhs);
+	friend Fraction operator*(const Fraction& lhs, const Fraction& rhs);
+	friend Fraction operator/(const Fraction& lhs, const Fraction& rhs);
 
 private:
 
+	int gcd(const int& m, const int& n);
 	int m_num;
 	int m_denom;
 	
