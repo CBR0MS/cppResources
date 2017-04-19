@@ -39,57 +39,39 @@ public:
 using namespace std;
 
 int main() {
-
-	bool cond = true;
-	bool firstTry = true;
-
-// TODO: get rid of while and add a second try
-	while (cond) {
-
-		try {
-
-			Stack myStk; //Capacity of 3
-
-			for (int i = 0; i < 5; i++) {
-
-				// try to manipulate the stack
-				if (i == 0 && firstTry) {
-					firstTry = false;
-					cout << "Popping right away.\n";
-					myStk.pop();
-				}
-				else {
-					cout << "\nPushing " << i + 1 << "st item.\n";
-					myStk.push(i);
-				}
-
-				// now check
-				if (myStk.size < 0) {
-					cond = false;
-					throw PushToFullStackException("Exception: your stack is empty!\n");
-				}
-				if (myStk.size > 3) {
-					cond = false;
-					throw PushToFullStackException("Exception: your stack is full!\n");
-				}
-			}
-
-		}
-		catch (PushToFullStackException e) {
-
-			e.what();
-			cout << "\nEnter 1 to continue...";
-			string inp;
-			cin >> inp;
-
-			if (inp == "1") {
-				cond = true;
-			}
-			else {
-				cond = false;
-			}
-		}
-	}
-	
-	return 0;
+    
+    Stack myStk;
+    
+    try{
+    
+        cout << "Popping right away.\n";
+        myStk.pop();
+        
+        if (myStk.size < 0) {
+            throw PushToFullStackException("Exception: your stack is empty!\n\n");
+        }
+    }
+    catch (PushToFullStackException e) {
+        
+        e.what();
+    }
+    try{
+        
+        for (int i = 1; i < 5; i++){
+            
+            cout << "Pushing " << i  << "st item.\n";
+            myStk.push(i);
+            
+            if (myStk.size >= 3) {
+                throw PushToFullStackException("Exception: your stack is full!\n\n");
+            }
+        }
+        
+    }
+    catch (PushToFullStackException e) {
+        
+        e.what();
+    }
+    
+    return 0;
 }
