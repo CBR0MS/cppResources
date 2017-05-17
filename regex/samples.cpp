@@ -7,7 +7,7 @@ using namespace std;
 int main() {
 
 	string str1 = "20 watermelons, 11 oranges";
-	string str2 = "<div id = \"slider\" class = \"container\"></div>";
+	string str2 = R"(<div id = "slider" class = "container"></div>)"; // raw string
 	string address1 = "20201 K Street, Washington, DC";
 	string address2 = "94920 B Street, San Rafael, CA";
 
@@ -25,8 +25,8 @@ int main() {
 
 	// 3: replace "slider" with "slideshow"
 
-	regex re3("\"slider\"");
-	string replace3 = R"("slideshow")"; // raw string
+	regex re3("id[\\s]*\\=[\\s]*\"slider\"");
+	string replace3 = R"(id = "slideshow")"; // raw string
 	cout << regex_replace(str2, re3, replace3) << endl;
 
 	// 4: search for 5 digits 
