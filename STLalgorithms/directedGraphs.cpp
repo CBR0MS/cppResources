@@ -18,11 +18,13 @@ many timed as necessary, or until every possible combo has been achieved.
 
 using namespace std;
 
-// function defs
+// function declarations
 
 vector<pair<int, int>> getInput(string filepath);
 bool visited(vector<int> passed, int num);
 vector<int> check(vector<pair<int, int>> pairs);
+
+// main 
 
  int main() {
 
@@ -36,6 +38,7 @@ vector<int> check(vector<pair<int, int>> pairs);
  	return 0;
 }
 
+// function defs
 
  vector<pair<int, int>> getInput(string filepath) { // get pairs from an input file
 
@@ -119,10 +122,8 @@ vector<int> check(vector<pair<int, int>> pairs);
  				if (pairs.at(k).first == j) {
 					j = pairs.at(k).second;
 					res.push_back(j);
-	
 				}
 			}
-
  			if (j == a) {
 				return res; // found the OG number, return the graph
 			}
